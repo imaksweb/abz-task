@@ -8,9 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ul[class],
-  ol[class] {
+  ul,
+  ol {
     padding: 0;
+    list-style: none;
   }
 
   body,
@@ -38,11 +39,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${COLORS.black}
     text-rendering: optimizeSpeed;
     background-color: ${COLORS.bg};
-  }
-
-  ul[class],
-  ol[class] {
-    list-style: none;
   }
 
   a:not([class]) {
