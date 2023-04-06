@@ -31,11 +31,12 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: ${FONTS.primary};
     min-height: 100vh;
     scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
+    font-family: ${FONTS.primary};
     line-height: ${LINE_HEIGHTS.m};
+    color: ${COLORS.black}
+    text-rendering: optimizeSpeed;
     background-color: ${COLORS.bg};
   }
 

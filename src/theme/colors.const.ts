@@ -3,7 +3,7 @@ export const COLORS = {
   primary_hover: '#ffe302',
   primary_disabled: '#b4b4b4',
   bg: '#f8f8f8',
-  black: '#000',
+  black: '#313131',
   white: '#fff',
   font_placeholder: '#7e7e7e',
 };
