@@ -33,12 +33,13 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     min-height: 100vh;
-    scroll-behavior: smooth;
+    padding-bottom: 100px;
     font-family: ${FONTS.primary};
     line-height: ${LINE_HEIGHTS.m};
     color: ${COLORS.black}
     text-rendering: optimizeSpeed;
     background-color: ${COLORS.bg};
+    scroll-behavior: smooth;
   }
 
   a:not([class]) {
