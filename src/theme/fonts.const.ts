@@ -6,7 +6,7 @@ export const WEIGHTS = {
   regular: 400,
 };
 
-export const SIZES = {
+export const FONT_SIZES = {
   l: '40px',
   m: '16px',
   s: '12px',

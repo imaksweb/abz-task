@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, SIZES, WEIGHTS, LINE_HEIGHTS } from '../../theme';
+import { COLORS, FONT_SIZES, WEIGHTS, LINE_HEIGHTS } from '../../theme';
 
 interface Props {
   width?: string;
@@ -11,7 +11,7 @@ export const Button = styled.button<Props>`
   width: ${({ width }) => width || '100px'};
   padding: 4px 0;
 
-  font-size: ${SIZES.m};
+  font-size: ${FONT_SIZES.m};
   font-weight: ${WEIGHTS.regular};
   line-height: ${LINE_HEIGHTS.m};
   color: ${({ color }) => color || COLORS.black};

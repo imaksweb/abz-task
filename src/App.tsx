@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import * as Styled from './App.styled';
 import * as theme from './theme';
 import { Header } from './components/Header';
+import { Intro } from './components/Intro/Intro';
 
 const App: FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: FC = () => {
       <Styled.GlobalStyles />
 
       <Header />
+      <Intro />
     </ThemeProvider>
   );
 };
