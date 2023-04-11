@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLORS, FONT_SIZES, LINE_HEIGHTS, WEIGHTS } from '../../theme';
 
-export const EmployeeCardStyled = styled.article`
+export const UserCardStyled = styled.article`
   display: flex;
   flex-direction: column;
   gap: 20px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { MEDIA } from '../../theme';
 
-export const StaffList = styled.div`
+export const UsersListStyled = styled.div`
   display: grid;
   gap: 20px;
   margin-bottom: 50px;

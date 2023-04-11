@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ThemeProvider } from 'styled-components';
 
 import * as Styled from './App.styled';
@@ -7,14 +8,25 @@ import { Header } from './components/Header';
 import { Intro } from './components/Intro/Intro';
 import { GetRequest } from './components/GetRequest';
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      cacheTime: Infinity,
+    },
+  },
+});
+
 const App: FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <Styled.GlobalStyles />
 
-      <Header />
-      <Intro />
-      <GetRequest />
+      <QueryClientProvider client={queryClient}>
+        <Header />
+        <Intro />
+        <GetRequest />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 };
