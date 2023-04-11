@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLORS, FONT_SIZES, LINE_HEIGHTS, MEDIA, WEIGHTS } from '../../theme';
+import { COLORS, FONT_SIZES, LINE_HEIGHTS, WEIGHTS } from '../../theme';
 
 export const UserCardStyled = styled.article`
   display: flex;
@@ -35,14 +35,14 @@ export const UserCardStyled = styled.article`
     text-overflow: ellipsis;
   }
 
-  p {
+  div > p {
     overflow: hidden;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  div {
+  div > div {
     overflow: hidden;
     white-space: nowrap;
     overflow: hidden;

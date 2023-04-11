@@ -32,15 +32,11 @@ export const IntroContainer = styled.div`
   margin: 0 auto;
 
   text-align: center;
+`;
 
-  h1 {
-    margin-bottom: 20px;
-  }
+export const Description = styled.p`
+  margin-bottom: 32px;
 
-  p {
-    margin-bottom: 32px;
-
-    text-align: center;
-    color: ${COLORS.white};
-  }
+  text-align: center;
+  color: ${COLORS.white};
 `;
