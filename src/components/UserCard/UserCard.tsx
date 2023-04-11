@@ -19,13 +19,17 @@ export const UserCard: FC<Props> = ({ user }) => {
       )}
       <h3>{name}</h3>
       <div>
-        <p className="user__position">{position}</p>
-        <a href={`mailto:${email}`} className="user__email">
-          {email}
-        </a>
-        <a href="tel:+380982789024" className="user__phone">
-          {phone}
-        </a>
+        <p>{position}</p>
+        <div>
+          <a href={`mailto:${email}`} title={email}>
+            {email}
+          </a>
+        </div>
+        <div>
+          <a href="tel:+380982789024" title={phone}>
+            {phone}
+          </a>
+        </div>
       </div>
     </UserCardStyled>
   );

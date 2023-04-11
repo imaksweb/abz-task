@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { COLORS, FONT_SIZES, LINE_HEIGHTS, WEIGHTS } from '../../theme';
+import { COLORS, FONT_SIZES, LINE_HEIGHTS, MEDIA, WEIGHTS } from '../../theme';
 
 export const UserCardStyled = styled.article`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
   padding: 20px;
 
   font: inherit;
@@ -27,11 +28,25 @@ export const UserCardStyled = styled.article`
     font-weight: ${WEIGHTS.regular};
     line-height: ${LINE_HEIGHTS.m};
     color: ${COLORS.black};
+
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   div {
-    display: flex;
-    flex-direction: column;
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     a {
       font: inherit;
