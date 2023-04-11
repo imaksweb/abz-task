@@ -3,6 +3,8 @@ import { UserCardStyled } from './UserCard.styled';
 import blankAvatar from '../../assets/img/photo-cover.svg';
 import { User } from '../../types/User';
 
+import formatPhoneNumber from '../../utils/formatPhone';
+
 type Props = {
   user: User;
 };
@@ -27,7 +29,7 @@ export const UserCard: FC<Props> = ({ user }) => {
         </div>
         <div>
           <a href="tel:+380982789024" title={phone}>
-            {phone}
+            {formatPhoneNumber(phone)}
           </a>
         </div>
       </div>
