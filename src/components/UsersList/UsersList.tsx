@@ -1,19 +1,13 @@
-import { FC, useState } from 'react';
-import { useQuery } from 'react-query';
+import { FC } from 'react';
 import { UsersListStyled } from './UsersList.styled';
-import fetchUsers from '../../api/fetchUsers';
 import { UserCard } from '../UserCard';
+import { User } from '../../types/User';
 
-export const UsersList: FC = () => {
-  const [page, setPage] = useState(1);
-  const { data, isLoading, isError } = useQuery(['users', page], fetchUsers);
+type Props = {
+  users: User[];
+};
 
-  // console.log(data, isLoading, isError);
-
-  const users = data?.users ?? [];
-
-  // console.log(users);
-
+export const UsersList: FC<Props> = ({ users }) => {
   return (
     <UsersListStyled>
       {users.map((user) => (

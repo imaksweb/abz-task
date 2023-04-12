@@ -4,10 +4,10 @@ import { UsersAPIResponse } from '../types/User';
 const fetchUsers: QueryFunction<UsersAPIResponse, ['users', number]> = async ({
   queryKey,
 }) => {
-  const page = queryKey[1];
+  const count = queryKey[1];
 
   const apiRes = await fetch(
-    `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=${page}&count=6`
+    `https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&count=${count}`
   );
 
   if (!apiRes.ok) {
