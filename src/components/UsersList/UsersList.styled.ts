@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { MEDIA } from '../../theme';
 
-export const UsersListStyled = styled.div`
+export const UsersListStyled = styled.div``;
+
+export const UsersListWrapper = styled.div`
   display: grid;
   justify-content: center;
   gap: 20px;
