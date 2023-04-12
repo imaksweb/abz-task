@@ -5,6 +5,7 @@ interface Props {
   width?: string;
   color?: string;
   bg?: string;
+  bgHover?: string;
 }
 
 export const Button = styled.button<Props>`
@@ -20,5 +21,10 @@ export const Button = styled.button<Props>`
   border: 1px solid transparent;
   border-radius: 80px;
 
+  transition: 0.3s background-color ease;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ bgHover }) => bgHover || COLORS.primary_hover};
+  }
 `;
