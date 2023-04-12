@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLORS } from '../../theme';
 
 export const PreloaderStyled = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ export const PreloaderContent = styled.svg`
   height: 50px;
 
   & .path {
-    stroke: #00bdd3;
+    stroke: ${COLORS.secondary};
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }
