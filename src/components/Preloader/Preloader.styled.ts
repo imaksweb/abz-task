@@ -7,7 +7,7 @@ export const PreloaderStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin: 100px 0;
+  margin: 50px 0;
 `;
 
 export const PreloaderContent = styled.svg`

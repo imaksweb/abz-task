@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { UsersListStyled, UsersListWrapper } from './UsersList.styled';
 import { UserCard } from '../UserCard';
@@ -6,35 +6,42 @@ import { Button } from '../Button';
 
 import fetchUsers from '../../api/fetchUsers';
 import { Preloader } from '../Preloader';
+import { User } from '../../types/User';
 
 export const UsersList: FC = () => {
-  const [count, setCount] = useState(6);
-  const { data, isLoading, isError } = useQuery(['users', count], fetchUsers);
+  const [page, setPage] = useState(1);
+  const [allUsers, setAllUsers] = useState<User[]>([]);
+  const { data, isError, isFetching } = useQuery(['users', page], fetchUsers);
 
-  // console.log(data, isLoading, isError);
+  // console.log(data);
 
-  const users = data?.users ?? [];
+  const { users: newUsers = [], total_pages } = data || {};
+
+  useEffect(() => {
+    if (newUsers.length) {
+      setAllUsers((currentUsers) => [...currentUsers, ...newUsers]);
+    }
+  }, [newUsers]);
 
   // console.log(users);
 
-  if (isLoading) {
-    return <Preloader />;
-  }
+  const handleShowMore = () => {
+    setPage(page + 1);
+  };
 
   return (
     <UsersListStyled>
       <UsersListWrapper>
-        {users.map((user) => (
+        {allUsers.map((user) => (
           <UserCard key={user.id} user={user} />
         ))}
       </UsersListWrapper>
-      <Button
-        width="120px"
-        disabled={data?.total_pages === 1}
-        onClick={() => setCount((current) => current + 6)}
-      >
-        Show more
-      </Button>
+      {isFetching && <Preloader />}
+      {total_pages && page < total_pages && (
+        <Button width="120px" onClick={handleShowMore}>
+          Show more
+        </Button>
+      )}
     </UsersListStyled>
   );
 };
