@@ -7,18 +7,36 @@ export const IntroStyled = styled.section`
   margin: 0 auto;
   padding: 40px 16px 70px;
 
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(./src/assets/img/intro-bg.jpeg);
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(./src/assets/img/intro-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
 
   @media (min-width: ${MEDIA.tablets}) {
     padding: 40px 32px 70px;
+
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(./src/assets/img/intro-bg_tablets.jpg);
   }
 
   @media (min-width: ${MEDIA.desktops}) {
     padding: 40px 60px 70px;
+
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(./src/assets/img/intro-bg_desktops.jpg);
   }
 
   @media (min-width: ${MEDIA.ultraDesktops}) {
