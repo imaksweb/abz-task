@@ -7,6 +7,7 @@ import * as theme from './theme';
 import { Header } from './components/Header';
 import { Intro } from './components/Intro/Intro';
 import { GetRequest } from './components/GetRequest';
+import { ToTopButton } from './components/ToTopButton';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,6 +27,7 @@ const App: FC = () => {
         <Header />
         <Intro />
         <GetRequest />
+        <ToTopButton />
       </QueryClientProvider>
     </ThemeProvider>
   );
