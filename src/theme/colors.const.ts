@@ -7,5 +7,6 @@ export const COLORS = {
   bg: '#f8f8f8',
   black: '#313131',
   white: '#fff',
-  font_placeholder: '#7e7e7e',
+  placeholder: '#7e7e7e',
+  border: '#d0cfcf',
 };

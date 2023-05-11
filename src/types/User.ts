@@ -1,3 +1,8 @@
+interface Link {
+  next_url: string | null;
+  prev_url: string | null;
+}
+
 export interface User {
   id: string;
   name: string;
@@ -7,11 +12,6 @@ export interface User {
   position_id: string;
   registration_timestamp: number;
   photo: string;
-}
-
-export interface Link {
-  next_url: string | null;
-  prev_url: string | null;
 }
 
 export interface UsersAPIResponse {

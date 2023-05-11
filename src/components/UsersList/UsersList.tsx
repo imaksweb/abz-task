@@ -13,8 +13,6 @@ export const UsersList: FC = () => {
   const [allUsers, setAllUsers] = useState<User[]>([]);
   const { data, isError, isFetching } = useQuery(['users', page], fetchUsers);
 
-  // console.log(data);
-
   const { users: newUsers = [], total_pages } = data || {};
 
   useEffect(() => {
@@ -22,8 +20,6 @@ export const UsersList: FC = () => {
       setAllUsers((currentUsers) => [...currentUsers, ...newUsers]);
     }
   }, [newUsers]);
-
-  // console.log(users);
 
   const handleShowMore = () => {
     setPage(page + 1);

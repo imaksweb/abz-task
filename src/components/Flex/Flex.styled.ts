@@ -4,6 +4,7 @@ interface Props {
   direction?: string;
   jContent?: string;
   aItems?: string;
+  gap?: string;
 }
 
 export const FlexContainer = styled.div<Props>`
@@ -11,4 +12,5 @@ export const FlexContainer = styled.div<Props>`
   flex-direction: ${({ direction }) => direction || 'row'};
   justify-content: ${({ jContent }) => jContent || 'center'};
   align-items: ${({ aItems }) => aItems || 'center'};
+  gap: ${({ gap }) => gap || '0'};
 `;

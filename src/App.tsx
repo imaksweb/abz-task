@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Intro } from './components/Intro/Intro';
 import { GetRequest } from './components/GetRequest';
 import { ToTopButton } from './components/ToTopButton';
+import { PostRequest } from './components/PostRequest/PostRequest';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,6 +28,7 @@ const App: FC = () => {
         <Header />
         <Intro />
         <GetRequest />
+        <PostRequest />
         <ToTopButton />
       </QueryClientProvider>
     </ThemeProvider>
