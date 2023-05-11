@@ -9,7 +9,7 @@ import fetchPositions from '../../api/fetchPositions';
 import { Input } from './Input';
 import { FlexContainer } from '../Flex';
 import { RadioGroup } from './RadioGroup';
-import { Buton } from '../Buton/Buton.styled';
+import { Button } from '../Button';
 
 export const SignupForm: FC = () => {
   const { data } = useQuery(['positions'], fetchPositions);
@@ -41,7 +41,7 @@ export const SignupForm: FC = () => {
               name="position"
               options={positions}
             />
-            <Buton
+            <Button
               variant="primary"
               type="submit"
               disabled={
@@ -49,7 +49,7 @@ export const SignupForm: FC = () => {
               }
             >
               Sign up
-            </Buton>
+            </Button>
           </FlexContainer>
         </Form>
       )}

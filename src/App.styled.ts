@@ -8,6 +8,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   ul,
   ol {
     padding: 0;
@@ -39,7 +43,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${COLORS.black}
     text-rendering: optimizeSpeed;
     background-color: ${COLORS.bg};
-    scroll-behavior: smooth;
   }
 
   a:not([class]) {

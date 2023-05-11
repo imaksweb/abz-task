@@ -5,7 +5,7 @@ import { Title } from '../Title/Title.styled';
 import { SignupForm } from '../SignupForm';
 
 export const PostRequest: FC = () => (
-  <PostRequestStyled>
+  <PostRequestStyled id="post-request">
     <Container>
       <Title>Working with POST request</Title>
       <SignupForm />

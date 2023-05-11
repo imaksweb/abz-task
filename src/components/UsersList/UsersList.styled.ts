@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import { MEDIA } from '../../theme';
 
-export const UsersListStyled = styled.div``;
+export const UsersListStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const UsersListWrapper = styled.div`
   display: grid;

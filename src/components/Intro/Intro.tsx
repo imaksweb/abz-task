@@ -17,7 +17,9 @@ export const Intro: FC = () => (
         in mind. They should also be excited to learn, as the world of Front-End
         Development keeps evolving.
       </Description>
-      <Button>Sign up</Button>
+      <Button as="a" variant="primary" href="#post-request">
+        Sign up
+      </Button>
     </IntroContainer>
   </IntroStyled>
 );

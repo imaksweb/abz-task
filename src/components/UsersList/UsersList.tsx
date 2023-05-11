@@ -2,11 +2,11 @@ import { FC, useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { UsersListStyled, UsersListWrapper } from './UsersList.styled';
 import { UserCard } from '../UserCard';
-import { Button } from '../Button';
 
 import fetchUsers from '../../api/fetchUsers';
 import { Preloader } from '../Preloader';
 import { User } from '../../types/User';
+import { Button } from '../Button';
 
 export const UsersList: FC = () => {
   const [page, setPage] = useState(1);
@@ -34,7 +34,7 @@ export const UsersList: FC = () => {
       </UsersListWrapper>
       {isFetching && <Preloader />}
       {total_pages && page < total_pages && (
-        <Button width="120px" onClick={handleShowMore}>
+        <Button variant="primary" width="120px" onClick={handleShowMore}>
           Show more
         </Button>
       )}

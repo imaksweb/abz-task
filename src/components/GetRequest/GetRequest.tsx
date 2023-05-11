@@ -7,7 +7,7 @@ import { FlexContainer } from '../Flex';
 
 export const GetRequest: FC = () => {
   return (
-    <GetRequestStyled>
+    <GetRequestStyled id="get-request">
       <Container>
         <Title>Working with GET request</Title>
         <FlexContainer direction="column">
