@@ -11,7 +11,7 @@ import { Button } from '../Button';
 export const UsersList: FC = () => {
   const [page, setPage] = useState(1);
   const [allUsers, setAllUsers] = useState<User[]>([]);
-  const { data, isError, isFetching } = useQuery(['users', page], fetchUsers);
+  const { data, isLoading } = useQuery(['users', page], fetchUsers);
 
   const { users: newUsers = [], total_pages } = data || {};
 
@@ -32,7 +32,7 @@ export const UsersList: FC = () => {
           <UserCard key={user.id} user={user} />
         ))}
       </UsersListWrapper>
-      {isFetching && <Preloader />}
+      {isLoading && <Preloader />}
       {total_pages && page < total_pages && (
         <Button variant="primary" width="120px" onClick={handleShowMore}>
           Show more

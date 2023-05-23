@@ -3,4 +3,5 @@ export interface FormValues {
   email: string;
   phone: string;
   position: string;
+  photo: File | null;
 }

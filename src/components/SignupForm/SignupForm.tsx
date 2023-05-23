@@ -10,6 +10,7 @@ import { Input } from './Input';
 import { FlexContainer } from '../Flex';
 import { RadioGroup } from './RadioGroup';
 import { Button } from '../Button';
+import { UploadPhoto } from './UploadPhoto';
 
 export const SignupForm: FC = () => {
   const { data } = useQuery(['positions'], fetchPositions);
@@ -19,6 +20,7 @@ export const SignupForm: FC = () => {
     email: '',
     phone: '',
     position: '',
+    photo: null,
   };
 
   return (
@@ -41,6 +43,9 @@ export const SignupForm: FC = () => {
               name="position"
               options={positions}
             />
+
+            <UploadPhoto name="photo" />
+
             <Button
               variant="primary"
               type="submit"

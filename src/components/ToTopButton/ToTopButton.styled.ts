@@ -14,6 +14,7 @@ export const ToTopButtonStyled = styled.button`
   border: none;
   border-radius: 50%;
   opacity: 0.5;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.25);
 
   transition: background-color 0.3s ease;
   cursor: pointer;

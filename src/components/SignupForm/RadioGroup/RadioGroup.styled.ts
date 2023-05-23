@@ -14,13 +14,13 @@ export const Title = styled.h3`
 `;
 
 export const RadioWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 8px;
 `;
 
 export const RadioOption = styled.label`
-  display: flex;
+  display: inline-flex;
   gap: 12px;
   align-items: center;
 
