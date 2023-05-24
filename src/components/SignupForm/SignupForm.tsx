@@ -14,6 +14,7 @@ import { Button } from '../Button';
 import { UploadPhoto } from './UploadPhoto';
 import { postUser } from '../../api/postUser';
 import { Preloader } from '../Preloader';
+import { SuccessRegistration } from '../SuccessRegistration';
 
 export const SignupForm: FC = () => {
   const { data: positionsData } = useQuery(['positions'], fetchPositions);
@@ -41,7 +42,7 @@ export const SignupForm: FC = () => {
   if (mutation.isSuccess) {
     console.log('Mutation data:', mutation);
 
-    return <div>{mutation.data.message}</div>;
+    return <SuccessRegistration />;
   }
 
   if (mutation.isError) {
