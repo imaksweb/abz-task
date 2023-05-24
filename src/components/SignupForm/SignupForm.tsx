@@ -1,34 +1,63 @@
 import { FC } from 'react';
-import { useQuery } from 'react-query';
+import { useQuery, useMutation } from 'react-query';
 import { Formik, Form } from 'formik';
 
 import { FormValues } from '../../types/FormValues';
 import { SignupSchema } from '../../schemas/Signup.schema';
 
 import fetchPositions from '../../api/fetchPositions';
+import fetchToken from '../../api/fetchToken';
 import { Input } from './Input';
 import { FlexContainer } from '../Flex';
 import { RadioGroup } from './RadioGroup';
 import { Button } from '../Button';
 import { UploadPhoto } from './UploadPhoto';
+import { postUser } from '../../api/postUser';
+import { Preloader } from '../Preloader';
 
 export const SignupForm: FC = () => {
-  const { data } = useQuery(['positions'], fetchPositions);
-  const positions = data?.positions ?? [];
+  const { data: positionsData } = useQuery(['positions'], fetchPositions);
+  const { data: tokenData } = useQuery(['token'], fetchToken);
+  const mutation = useMutation({
+    mutationFn: (newUser: FormValues) => {
+      return postUser(newUser, token);
+    },
+  });
+  const positions = positionsData?.positions ?? [];
+  const token = tokenData?.token ?? '';
+
   const initialValues: FormValues = {
     name: '',
     email: '',
     phone: '',
-    position: '',
-    photo: null,
+    position_id: 0,
+    photo: '',
   };
+
+  if (mutation.isLoading) {
+    return <Preloader />;
+  }
+
+  if (mutation.isSuccess) {
+    console.log('Mutation data:', mutation);
+
+    return <div>{mutation.data.message}</div>;
+  }
+
+  if (mutation.isError) {
+    const error = mutation.error as Error;
+
+    return <div>An error occurred: {error.message}</div>;
+  }
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={SignupSchema}
       onSubmit={(values) => {
-        console.log(values);
+        console.log('New user:', values);
+
+        mutation.mutate(values);
       }}
     >
       {({ isSubmitting, errors, dirty }) => (
@@ -40,7 +69,7 @@ export const SignupForm: FC = () => {
 
             <RadioGroup
               title="Select your position"
-              name="position"
+              name="position_id"
               options={positions}
             />
 

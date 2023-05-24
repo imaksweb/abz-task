@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 import { useField, FieldHookConfig } from 'formik';
 
 import {
@@ -18,17 +18,21 @@ export const UploadPhoto: FC<Props & FieldHookConfig<File | null>> = ({
 }) => {
   const [field, meta, helpers] = useField<File | null>({ name });
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.currentTarget.files && event.currentTarget.files[0];
+
+    helpers.setTouched(true, true);
     helpers.setValue(file, true);
   };
+
+  // console.log('UploadPhoto meta:', meta);
 
   return (
     <UploadPhotoStyled>
       <UploadWrapper>
         <UploadInput
-          type="file"
           {...field}
+          type="file"
           value={undefined}
           accept=".jpeg, .jpg"
           onChange={handleFileChange}
@@ -38,7 +42,9 @@ export const UploadPhoto: FC<Props & FieldHookConfig<File | null>> = ({
           {field.value?.name || 'Upload your photo'}
         </UploadCaption>
       </UploadWrapper>
-      {meta.error && <div>{meta.error}</div>}
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
     </UploadPhotoStyled>
   );
 };

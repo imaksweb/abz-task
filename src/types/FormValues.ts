@@ -2,6 +2,6 @@ export interface FormValues {
   name: string;
   email: string;
   phone: string;
-  position: string;
-  photo: File | null;
+  position_id: number;
+  photo: string | File | Blob;
 }

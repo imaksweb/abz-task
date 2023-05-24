@@ -30,7 +30,12 @@ export const RadioGroup: FC<Props<Position> & FieldHookConfig<string>> = ({
       <RadioWrapper>
         {options.map((option) => (
           <RadioOption key={option.id}>
-            <RadioButton type="radio" name={name} value={option.name} />
+            <RadioButton
+              {...field}
+              type="radio"
+              name={name}
+              value={option.id}
+            />
             <RadioCaption>{option.name}</RadioCaption>
           </RadioOption>
         ))}

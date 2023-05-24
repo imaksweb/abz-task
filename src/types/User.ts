@@ -11,7 +11,7 @@ export interface User {
   position: string;
   position_id: string;
   registration_timestamp: number;
-  photo: string;
+  photo: File | null;
 }
 
 export interface UsersAPIResponse {
@@ -22,4 +22,10 @@ export interface UsersAPIResponse {
   count: number;
   links: Link;
   users: User[];
+}
+
+export interface NewUserAPIResponse {
+  success: boolean;
+  user_id?: number;
+  message: string;
 }

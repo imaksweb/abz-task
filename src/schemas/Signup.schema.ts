@@ -39,7 +39,7 @@ export const SignupSchema: Yup.ObjectSchema<FormValues> = Yup.object().shape({
   phone: Yup.string()
     .matches(phoneTemplate, 'The phone number is not valid')
     .required('The phone field is required.'),
-  position: Yup.string().required('Select a position.'),
+  position_id: Yup.number().required('Select a position.'),
   photo: Yup.mixed<File>()
     .required('The photo field is required.')
     .test(

@@ -1,4 +1,3 @@
-import { Field } from 'formik';
 import styled from 'styled-components';
 import { COLORS } from '../../../theme';
 
@@ -29,7 +28,7 @@ export const RadioOption = styled.label`
 
 export const RadioCaption = styled.span``;
 
-export const RadioButton = styled(Field)`
+export const RadioButton = styled.input`
   appearance: none;
   position: relative;
   margin: 0;
