@@ -1,31 +1,24 @@
 import { FC } from 'react';
-import { useQuery, useMutation } from 'react-query';
+import { useQuery } from 'react-query';
 import { Formik, Form } from 'formik';
 
 import { FormValues } from '../../types/FormValues';
 import { SignupSchema } from '../../schemas/Signup.schema';
 
 import fetchPositions from '../../api/fetchPositions';
-import fetchToken from '../../api/fetchToken';
 import { Input } from './Input';
 import { FlexContainer } from '../Flex';
 import { RadioGroup } from './RadioGroup';
 import { Button } from '../Button';
 import { UploadPhoto } from './UploadPhoto';
-import { postUser } from '../../api/postUser';
-import { Preloader } from '../Preloader';
-import { SuccessRegistration } from '../SuccessRegistration';
 
-export const SignupForm: FC = () => {
+type Props = {
+  handleSubmit: (newUser: FormValues) => void;
+};
+
+export const SignupForm: FC<Props> = ({ handleSubmit }) => {
   const { data: positionsData } = useQuery(['positions'], fetchPositions);
-  const { data: tokenData } = useQuery(['token'], fetchToken);
-  const mutation = useMutation({
-    mutationFn: (newUser: FormValues) => {
-      return postUser(newUser, token);
-    },
-  });
   const positions = positionsData?.positions ?? [];
-  const token = tokenData?.token ?? '';
 
   const initialValues: FormValues = {
     name: '',
@@ -35,31 +28,11 @@ export const SignupForm: FC = () => {
     photo: '',
   };
 
-  if (mutation.isLoading) {
-    return <Preloader />;
-  }
-
-  if (mutation.isSuccess) {
-    console.log('Mutation data:', mutation);
-
-    return <SuccessRegistration />;
-  }
-
-  if (mutation.isError) {
-    const error = mutation.error as Error;
-
-    return <div>An error occurred: {error.message}</div>;
-  }
-
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={SignupSchema}
-      onSubmit={(values) => {
-        console.log('New user:', values);
-
-        mutation.mutate(values);
-      }}
+      onSubmit={handleSubmit}
     >
       {({ isSubmitting, errors, dirty }) => (
         <Form>
