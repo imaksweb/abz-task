@@ -35,8 +35,10 @@ export const UploadPhoto: FC<Props & FieldHookConfig<File | null>> = ({
           accept=".jpeg, .jpg"
           onChange={handleFileChange}
         />
-        <UploadButton>Upload</UploadButton>
-        <UploadCaption>
+        <UploadButton hasError={!!meta.error && meta.touched}>
+          Upload
+        </UploadButton>
+        <UploadCaption hasError={!!meta.error && meta.touched}>
           {field.value?.name || 'Upload your photo'}
         </UploadCaption>
       </UploadWrapper>
