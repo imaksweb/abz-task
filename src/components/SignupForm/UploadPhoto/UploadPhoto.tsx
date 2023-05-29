@@ -25,8 +25,6 @@ export const UploadPhoto: FC<Props & FieldHookConfig<File | null>> = ({
     helpers.setValue(file, true);
   };
 
-  // console.log('UploadPhoto meta:', meta);
-
   return (
     <UploadPhotoStyled>
       <UploadWrapper>

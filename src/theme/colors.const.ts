@@ -9,4 +9,5 @@ export const COLORS = {
   white: '#fff',
   placeholder: '#7e7e7e',
   border: '#d0cfcf',
+  red: '#CB3D40',
 };

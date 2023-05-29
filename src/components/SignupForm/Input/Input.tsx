@@ -1,7 +1,7 @@
 import { FC, HTMLProps } from 'react';
 import { useField, FieldHookConfig } from 'formik';
 
-import { InputStyled } from './Input.styled';
+import { InputStyled, InputWrapper } from './Input.styled';
 
 export const Input: FC<
   HTMLProps<HTMLInputElement> & FieldHookConfig<string>
@@ -9,11 +9,11 @@ export const Input: FC<
   const [field, meta] = useField<string>({ name, type, placeholder });
 
   return (
-    <InputStyled value={field.value}>
-      <label>
+    <InputStyled value={field.value} hasError={!!meta.error && meta.touched}>
+      <InputWrapper>
         <input {...field} type={type} />
         <span>{placeholder}</span>
-      </label>
+      </InputWrapper>
       {meta.error && meta.touched && <div>{meta.error}</div>}
     </InputStyled>
   );

@@ -2,16 +2,13 @@ import styled from 'styled-components';
 import { COLORS } from '../../../theme';
 
 interface Props {
-  value?: string;
+  value: string;
+  hasError: boolean | undefined;
 }
 
 export const InputStyled = styled.div<Props>`
   width: 100%;
   max-width: 380px;
-
-  label {
-    position: relative;
-  }
 
   input {
     display: block;
@@ -22,7 +19,9 @@ export const InputStyled = styled.div<Props>`
     color: inherit;
 
     background-color: ${COLORS.bg};
-    border: 1px solid ${COLORS.border};
+    border-width: ${({ hasError }) => (hasError ? '2px' : '1px')};
+    border-style: solid;
+    border-color: ${({ hasError }) => (hasError ? COLORS.red : COLORS.border)};
     border-radius: 4px;
 
     outline: none;
@@ -50,7 +49,7 @@ export const InputStyled = styled.div<Props>`
 
     transform: translateY(-50%);
 
-    color: ${COLORS.placeholder};
+    color: ${({ hasError }) => (hasError ? COLORS.red : COLORS.placeholder)};
     background-color: ${COLORS.bg};
 
     transition: top 0.2s ease-in-out;
@@ -60,4 +59,8 @@ export const InputStyled = styled.div<Props>`
   div {
     position: absolute;
   }
+`;
+
+export const InputWrapper = styled.label`
+  position: relative;
 `;
