@@ -39,7 +39,7 @@ export const SignupForm: FC<Props> = ({ handleSubmit }) => {
           <FlexContainer direction="column" gap="32px">
             <Input name="name" placeholder="Your name" />
             <Input name="email" type="email" placeholder="Email" />
-            <Input name="phone" placeholder="Phone" />
+            <Input name="phone" type="tel" placeholder="Phone" />
 
             <RadioGroup
               title="Select your position"

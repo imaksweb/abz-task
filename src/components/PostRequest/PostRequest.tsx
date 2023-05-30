@@ -25,8 +25,12 @@ export const PostRequest: FC = () => {
 
   const handleSubmit = (newUser: FormValues) => {
     console.log('New user:', newUser);
+    const { phone } = newUser;
+    const formattedPhone = phone.replace(/\D/g, '');
 
-    mutation.mutate(newUser);
+    const formattedUser = { ...newUser, phone: `+${formattedPhone}` };
+
+    mutation.mutate(formattedUser);
   };
 
   return (

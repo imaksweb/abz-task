@@ -4,7 +4,7 @@ import { FormValues } from '../types/FormValues';
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const emailTemplate =
   /^[a-zA-Z0-9.!#$%&'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
-const phoneTemplate = /^[/+]{0,1}380([0-9]{9})$/;
+const phoneTemplate = /^\+(\d{2})\((\d{3})\)(\d{3})-(\d{2})-(\d{2})$/;
 const validFileExtensions: { image: string[] } = {
   image: ['jpg', 'jpeg'],
 };
@@ -37,7 +37,10 @@ export const SignupSchema: Yup.ObjectSchema<FormValues> = Yup.object().shape({
     .matches(emailTemplate, 'The email must be a valid email address.')
     .required('The email field is required.'),
   phone: Yup.string()
-    .matches(phoneTemplate, 'The phone number is not valid')
+    .matches(
+      phoneTemplate,
+      'The phone number is not valid. Ex: +38 (0XX) XXX - XX - XX'
+    )
     .required('The phone field is required.'),
   position_id: Yup.number().required('Select a position.'),
   photo: Yup.mixed<File>()
