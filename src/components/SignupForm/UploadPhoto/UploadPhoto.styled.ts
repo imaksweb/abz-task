@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../../theme';
 
 type Props = {
+  value?: string;
   hasError: boolean | undefined;
 };
 
@@ -44,7 +45,7 @@ export const UploadCaption = styled.span<Props>`
   flex: 1;
   padding: 14px 16px;
 
-  color: ${COLORS.placeholder};
+  color: ${({ value }) => (value ? COLORS.black : COLORS.placeholder)};
 
   border-top-width: ${({ hasError }) => (hasError ? '2px' : '1px')};
   border-top-style: solid;
