@@ -3,7 +3,7 @@ import { useQuery, useMutation } from 'react-query';
 
 import { FormValues } from '../../types/FormValues';
 
-import { PostRequestStyled } from './PostRequest.styled';
+import { ErrorWrapper, PostRequestStyled } from './PostRequest.styled';
 import { Container } from '../Container';
 import { Title } from '../Title/Title.styled';
 import { SignupForm } from '../SignupForm';
@@ -11,6 +11,7 @@ import { Preloader } from '../Preloader';
 import fetchToken from '../../api/fetchToken';
 import { postUser } from '../../api/postUser';
 import { SuccessRegistration } from '../SuccessRegistration';
+import { ErrorMessage } from '../ErrorMessage';
 
 export const PostRequest: FC = () => {
   const { data: tokenData } = useQuery(['token'], fetchToken);
@@ -38,12 +39,22 @@ export const PostRequest: FC = () => {
           <Preloader />
         ) : (
           <>
-            {mutation.isError && <div>An error occurred: {error.message}</div>}
-            {mutation.isSuccess && mutation.data.success ? (
-              <SuccessRegistration />
-            ) : (
-              <div>{mutation.data?.message}</div>
+            {mutation.isError && (
+              <ErrorWrapper>
+                <ErrorMessage>An error occurred: {error.message}</ErrorMessage>
+              </ErrorWrapper>
             )}
+
+            {mutation.isSuccess && mutation.data.success && (
+              <SuccessRegistration />
+            )}
+
+            {mutation.isSuccess && !mutation.data?.success && (
+              <ErrorWrapper>
+                <ErrorMessage>{mutation.data?.message}</ErrorMessage>
+              </ErrorWrapper>
+            )}
+
             {(!mutation.isSuccess || !mutation.data.success) && (
               <SignupForm handleSubmit={handleSubmit} />
             )}

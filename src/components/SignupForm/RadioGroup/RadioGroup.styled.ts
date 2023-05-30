@@ -13,9 +13,17 @@ export const Title = styled.h3`
 `;
 
 export const RadioWrapper = styled.div`
+  position: relative;
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
+  padding-bottom: 14px;
+
+  div {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+  }
 `;
 
 export const RadioOption = styled.label`

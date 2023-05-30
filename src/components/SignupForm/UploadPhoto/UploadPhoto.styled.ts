@@ -6,8 +6,16 @@ type Props = {
 };
 
 export const UploadPhotoStyled = styled.div`
+  position: relative;
   width: 100%;
   max-width: 380px;
+  padding-bottom: 18px;
+
+  div {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+  }
 `;
 
 export const UploadWrapper = styled.label`

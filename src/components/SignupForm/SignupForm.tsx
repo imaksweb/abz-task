@@ -36,7 +36,7 @@ export const SignupForm: FC<Props> = ({ handleSubmit }) => {
     >
       {({ isSubmitting, errors, dirty }) => (
         <Form>
-          <FlexContainer direction="column" gap="50px">
+          <FlexContainer direction="column" gap="32px">
             <Input name="name" placeholder="Your name" />
             <Input name="email" type="email" placeholder="Email" />
             <Input name="phone" placeholder="Phone" />

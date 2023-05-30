@@ -8,6 +8,7 @@ import {
   UploadButton,
   UploadCaption,
 } from './UploadPhoto.styled';
+import { ErrorMessage } from '../../ErrorMessage';
 
 type Props = {
   name: string;
@@ -43,7 +44,9 @@ export const UploadPhoto: FC<Props & FieldHookConfig<File | null>> = ({
         </UploadCaption>
       </UploadWrapper>
       {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
+        <div>
+          <ErrorMessage>{meta.error}</ErrorMessage>
+        </div>
       ) : null}
     </UploadPhotoStyled>
   );

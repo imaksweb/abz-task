@@ -7,8 +7,14 @@ interface Props {
 }
 
 export const InputStyled = styled.div<Props>`
+  position: relative;
   width: 100%;
   max-width: 380px;
+  padding-bottom: 18px;
+
+  border-width: ${({ hasError }) => (hasError ? '0' : '1px')};
+  border-style: solid;
+  border-color: transparent;
 
   input {
     display: block;
@@ -58,6 +64,8 @@ export const InputStyled = styled.div<Props>`
 
   div {
     position: absolute;
+    left: 16px;
+    bottom: 0;
   }
 `;
 

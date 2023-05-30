@@ -2,6 +2,7 @@ import { FC, HTMLProps } from 'react';
 import { useField, FieldHookConfig } from 'formik';
 
 import { InputStyled, InputWrapper } from './Input.styled';
+import { ErrorMessage } from '../../ErrorMessage';
 
 export const Input: FC<
   HTMLProps<HTMLInputElement> & FieldHookConfig<string>
@@ -14,7 +15,11 @@ export const Input: FC<
         <input {...field} type={type} />
         <span>{placeholder}</span>
       </InputWrapper>
-      {meta.error && meta.touched && <div>{meta.error}</div>}
+      {meta.error && meta.touched && (
+        <div>
+          <ErrorMessage>{meta.error}</ErrorMessage>
+        </div>
+      )}
     </InputStyled>
   );
 };

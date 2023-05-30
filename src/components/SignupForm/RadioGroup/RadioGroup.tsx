@@ -10,6 +10,7 @@ import {
   Title,
 } from './RadioGroup.styled';
 import { Position } from '../../../types/Position';
+import { ErrorMessage } from '../../ErrorMessage';
 
 type Props<T> = {
   title: string;
@@ -39,7 +40,11 @@ export const RadioGroup: FC<Props<Position> & FieldHookConfig<string>> = ({
             <RadioCaption>{option.name}</RadioCaption>
           </RadioOption>
         ))}
-        {meta.error && meta.touched && <div>{meta.error}</div>}
+        {meta.error && meta.touched && (
+          <div>
+            <ErrorMessage>{meta.error}</ErrorMessage>
+          </div>
+        )}
       </RadioWrapper>
     </RadioGroupStyled>
   );
