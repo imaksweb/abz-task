@@ -11,7 +11,7 @@ type Props = {
 
 export const UserCard: FC<Props> = ({ user }) => {
   const { name, position, email, phone, photo } = user;
-  const formatedPhoneNumber = formatPhoneNumber(phone);
+  const formattedPhoneNumber = formatPhoneNumber(phone);
 
   return (
     <UserCardStyled>
@@ -31,8 +31,8 @@ export const UserCard: FC<Props> = ({ user }) => {
         </Text>
 
         <Text>
-          <Link href={`tel:${phone}`} title={formatedPhoneNumber}>
-            {formatedPhoneNumber}
+          <Link href={`tel:${phone}`} title={formattedPhoneNumber}>
+            {formattedPhoneNumber}
           </Link>
         </Text>
       </div>
