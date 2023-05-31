@@ -11,7 +11,7 @@ export interface User {
   position: string;
   position_id: string;
   registration_timestamp: number;
-  photo: File | null;
+  photo: string;
 }
 
 export interface UsersAPIResponse {
