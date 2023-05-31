@@ -45,6 +45,11 @@ export const UploadCaption = styled.span<Props>`
   flex: 1;
   padding: 14px 16px;
 
+  font: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: ${({ value }) => (value ? COLORS.black : COLORS.placeholder)};
 
   border-top-width: ${({ hasError }) => (hasError ? '2px' : '1px')};
