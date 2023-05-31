@@ -28,9 +28,9 @@ export const PostRequest: FC = () => {
     const { phone } = newUser;
     const formattedPhone = phone.replace(/\D/g, '');
 
-    const formattedUser = { ...newUser, phone: `+${formattedPhone}` };
+    const normalizedUser = { ...newUser, phone: `+${formattedPhone}` };
 
-    mutation.mutate(formattedUser);
+    mutation.mutate(normalizedUser);
   };
 
   return (
