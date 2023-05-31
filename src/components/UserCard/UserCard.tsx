@@ -20,9 +20,11 @@ export const UserCard: FC<Props> = ({ user }) => {
       ) : (
         <Image src={blankAvatar} alt={`${name} avatar`} />
       )}
-      <Text as="h3">{name}</Text>
+      <Text as="h3" title={name}>
+        {name}
+      </Text>
       <div>
-        <Text>{position}</Text>
+        <Text title={position}>{position}</Text>
 
         <Text>
           <Link href={`mailto:${email}`} title={email}>
