@@ -5,7 +5,7 @@ import { Formik, Form } from 'formik';
 import { FormValues } from '../../types/FormValues';
 import { SignupSchema } from '../../schemas/Signup.schema';
 
-import fetchPositions from '../../api/fetchPositions';
+import { fetchPositions } from '../../api/fetchPositions';
 import { Input } from './Input';
 import { FlexContainer } from '../Flex';
 import { RadioGroup } from './RadioGroup';

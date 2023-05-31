@@ -1,7 +1,7 @@
 import { QueryFunction } from 'react-query';
 import { PositionsAPIResponse } from '../types/Position';
 
-const fetchPositions: QueryFunction<
+export const fetchPositions: QueryFunction<
   PositionsAPIResponse,
   ['positions']
 > = async () => {
@@ -15,5 +15,3 @@ const fetchPositions: QueryFunction<
 
   return apiRes.json();
 };
-
-export default fetchPositions;

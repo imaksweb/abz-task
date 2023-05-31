@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import { UsersListStyled, UsersListWrapper } from './UsersList.styled';
 import { UserCard } from '../UserCard';
 
-import fetchUsers from '../../api/fetchUsers';
+import { fetchUsers } from '../../api/fetchUsers';
 import { Preloader } from '../Preloader';
 import { User } from '../../types/User';
 import { Button } from '../Button';

@@ -1,9 +1,10 @@
 import { QueryFunction } from 'react-query';
 import { UsersAPIResponse } from '../types/User';
 
-const fetchUsers: QueryFunction<UsersAPIResponse, ['users', number]> = async ({
-  queryKey,
-}) => {
+export const fetchUsers: QueryFunction<
+  UsersAPIResponse,
+  ['users', number]
+> = async ({ queryKey }) => {
   const page = queryKey[1];
 
   const apiRes = await fetch(
@@ -16,5 +17,3 @@ const fetchUsers: QueryFunction<UsersAPIResponse, ['users', number]> = async ({
 
   return apiRes.json();
 };
-
-export default fetchUsers;

@@ -8,7 +8,7 @@ import { Container } from '../Container';
 import { Title } from '../Title/Title.styled';
 import { SignupForm } from '../SignupForm';
 import { Preloader } from '../Preloader';
-import fetchToken from '../../api/fetchToken';
+import { fetchToken } from '../../api/fetchToken';
 import { postUser } from '../../api/postUser';
 import { SuccessRegistration } from '../SuccessRegistration';
 import { ErrorMessage } from '../ErrorMessage';
