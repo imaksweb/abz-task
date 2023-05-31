@@ -2,7 +2,7 @@ export const FONTS = {
   primary: "'Nunito', sans-serif",
 };
 
-export const WEIGHTS = {
+export const FONT_WEIGHTS = {
   regular: 400,
 };
 
