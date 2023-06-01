@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IntroStyled, IntroContainer, Description } from './Intro.styled';
-import { Title } from '../Title/Title.styled';
+import { Title } from '../Title';
 import { COLORS } from '../../theme';
 import { Button } from '../Button';
 

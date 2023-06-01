@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Title } from '../Title/Title.styled';
+import { Title } from '../Title';
 import { SuccessRegistrationStyled } from './SuccessRegistration.styled';
 
 import SuccessImage from '../../assets/img/success-image.svg';

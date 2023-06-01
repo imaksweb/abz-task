@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import * as Styled from './App.styled';
 import * as theme from './theme';
 import { Header } from './components/Header';
-import { Intro } from './components/Intro/Intro';
+import { Intro } from './components/Intro';
 import { GetRequest } from './components/GetRequest';
 import { ToTopButton } from './components/ToTopButton';
 import { PostRequest } from './components/PostRequest/PostRequest';

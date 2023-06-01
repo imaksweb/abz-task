@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Title } from '../Title/Title.styled';
+import { Title } from '../Title';
 import { Container } from '../Container';
 import { GetRequestStyled } from './GetRequest.styled';
 import { UsersList } from '../UsersList';

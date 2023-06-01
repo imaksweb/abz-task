@@ -5,7 +5,7 @@ import { FormValues } from '../../types/FormValues';
 
 import { ErrorWrapper, PostRequestStyled } from './PostRequest.styled';
 import { Container } from '../Container';
-import { Title } from '../Title/Title.styled';
+import { Title } from '../Title';
 import { SignupForm } from '../SignupForm';
 import { Preloader } from '../Preloader';
 import { fetchToken } from '../../api/fetchToken';
