@@ -22,7 +22,7 @@ export const IntroStyled = styled.section`
   background-position: center bottom;
 
   @media (min-width: ${MEDIA.tablets}) {
-    padding: 40px 32px 70px;
+    padding: 88px 32px;
 
     background-image: linear-gradient(
         0deg,
@@ -33,7 +33,7 @@ export const IntroStyled = styled.section`
   }
 
   @media (min-width: ${MEDIA.desktops}) {
-    padding: 40px 60px 70px;
+    padding: 164px 60px;
 
     background-image: linear-gradient(
         0deg,
@@ -41,10 +41,6 @@ export const IntroStyled = styled.section`
         rgba(0, 0, 0, 0.5)
       ),
       url(${introBgDesktops});
-  }
-
-  @media (min-width: ${MEDIA.ultraDesktops}) {
-    padding: 40px 0 70px;
   }
 `;
 
