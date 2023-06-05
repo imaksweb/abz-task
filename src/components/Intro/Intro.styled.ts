@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { COLORS, MEDIA } from '../../theme';
 
+import introBg from '../../assets/img/intro-bg.jpg';
+import introBgTablets from '../../assets/img/intro-bg_tablets.jpg';
+import introBgDesktops from '../../assets/img/intro-bg_desktops.jpg';
+
 export const IntroStyled = styled.section`
   width: 100%;
   max-width: 1170px;
@@ -12,7 +16,7 @@ export const IntroStyled = styled.section`
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url(./src/assets/img/intro-bg.jpg);
+    url(${introBg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -25,7 +29,7 @@ export const IntroStyled = styled.section`
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url(./src/assets/img/intro-bg_tablets.jpg);
+      url(${introBgTablets});
   }
 
   @media (min-width: ${MEDIA.desktops}) {
@@ -36,7 +40,7 @@ export const IntroStyled = styled.section`
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
-      url(./src/assets/img/intro-bg_desktops.jpg);
+      url(${introBgDesktops});
   }
 
   @media (min-width: ${MEDIA.ultraDesktops}) {
