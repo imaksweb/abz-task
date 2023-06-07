@@ -56,6 +56,7 @@ export const InputStyled = styled.div<Props>`
     transform: translateY(-50%);
 
     color: ${({ hasError }) => (hasError ? COLORS.red : COLORS.placeholder)};
+    white-space: nowrap;
     background-color: ${COLORS.bg};
 
     transition: top 0.2s ease-in-out;
@@ -71,4 +72,5 @@ export const InputStyled = styled.div<Props>`
 
 export const InputWrapper = styled.label`
   position: relative;
+  display: block;
 `;
