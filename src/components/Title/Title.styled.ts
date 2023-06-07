@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { COLORS, FONT_SIZES, LINE_HEIGHTS, FONT_WEIGHTS } from '../../theme';
 
-interface Props {
+type Props = {
   color?: string;
   mb?: string;
-}
+};
 
 export const Title = styled.h2<Props>`
   margin-bottom: ${({ mb }) => mb || '50px'};

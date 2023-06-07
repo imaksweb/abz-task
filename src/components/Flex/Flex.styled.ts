@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-interface Props {
+type Props = {
   direction?: string;
   jContent?: string;
   aItems?: string;
   gap?: string;
-}
+};
 
 export const FlexContainer = styled.div<Props>`
   display: flex;

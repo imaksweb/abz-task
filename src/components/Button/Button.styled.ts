@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 import { COLORS, FONT_SIZES, FONT_WEIGHTS, LINE_HEIGHTS } from '../../theme';
 
-interface Props {
+type Props = {
   width?: string;
   variant?: 'primary';
   disabled?: boolean;
-}
+};
 
 const primaryButtonStyles = css`
   background-color: ${COLORS.primary};

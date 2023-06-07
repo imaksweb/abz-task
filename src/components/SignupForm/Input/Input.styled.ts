@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { COLORS } from '../../../theme';
 
-interface Props {
+type Props = {
   value: string;
   hasError: boolean | undefined;
-}
+};
 
 export const InputStyled = styled.div<Props>`
   position: relative;
