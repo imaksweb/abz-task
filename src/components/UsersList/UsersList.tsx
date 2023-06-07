@@ -11,15 +11,22 @@ import { Button } from '../Button';
 export const UsersList: FC = () => {
   const [page, setPage] = useState(1);
   const [allUsers, setAllUsers] = useState<User[]>([]);
-  const { data, isLoading } = useQuery(['users', page], fetchUsers);
+  const { data, isLoading, isRefetching } = useQuery(
+    ['users', page],
+    fetchUsers
+  );
 
   const { users: newUsers = [], total_pages } = data || {};
 
   useEffect(() => {
-    if (newUsers.length) {
+    if (newUsers.length && !isRefetching) {
       setAllUsers((currentUsers) => [...currentUsers, ...newUsers]);
     }
-  }, [newUsers]);
+
+    if (isRefetching) {
+      setAllUsers([]);
+    }
+  }, [newUsers, isRefetching]);
 
   const handleShowMore = () => {
     setPage(page + 1);

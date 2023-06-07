@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useQuery, useMutation } from 'react-query';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
 
 import { FormValues } from '../../types/FormValues';
 
@@ -15,9 +15,14 @@ import { ErrorMessage } from '../ErrorMessage';
 
 export const PostRequest: FC = () => {
   const { data: tokenData } = useQuery(['token'], fetchToken);
+  const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (newUser: FormValues) => {
       return postUser(newUser, token);
+    },
+    onSuccess: async () => {
+      // Invalidate the 'users' query to trigger refetch
+      await queryClient.invalidateQueries('users');
     },
   });
   const token = tokenData?.token ?? '';
