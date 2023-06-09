@@ -18,7 +18,7 @@ export const UserCard: FC<Props> = ({ user }) => {
       {photo ? (
         <Image src={photo} alt={`${name} avatar`} />
       ) : (
-        <Image src={blankAvatar} alt={`${name} avatar`} />
+        <Image src={blankAvatar} alt={`${name} avatar`} loading="lazy" />
       )}
       <Text as="h3" title={name}>
         {name}
