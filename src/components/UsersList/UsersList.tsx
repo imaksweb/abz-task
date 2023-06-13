@@ -1,47 +1,47 @@
-import { FC, useState, useEffect } from 'react';
-import { useQuery } from 'react-query';
+import { FC, Fragment } from 'react';
+import { useInfiniteQuery } from 'react-query';
 import { UsersListStyled, UsersListWrapper } from './UsersList.styled';
 import { UserCard } from '../UserCard';
 
 import { fetchUsers } from '../../api/fetchUsers';
 import { Preloader } from '../Preloader';
-import { User } from '../../types/User';
 import { Button } from '../Button';
 
 export const UsersList: FC = () => {
-  const [page, setPage] = useState(1);
-  const [allUsers, setAllUsers] = useState<User[]>([]);
-  const { data, isLoading, isRefetching } = useQuery(
-    ['users', page],
-    fetchUsers
+  const { data, error, fetchNextPage, hasNextPage, status } = useInfiniteQuery(
+    'users',
+    fetchUsers,
+    {
+      getNextPageParam: (_lastPage, pages) => {
+        return pages.length < pages[0].total_pages
+          ? pages.length + 1
+          : undefined;
+      },
+    }
   );
 
-  const { users: newUsers = [], total_pages } = data || {};
-
-  useEffect(() => {
-    if (newUsers.length && !isRefetching) {
-      setAllUsers((currentUsers) => [...currentUsers, ...newUsers]);
-    }
-
-    if (isRefetching) {
-      setAllUsers([]);
-    }
-  }, [newUsers, isRefetching]);
-
-  const handleShowMore = () => {
-    setPage(page + 1);
+  const handleLoadMore = async (): Promise<void> => {
+    await fetchNextPage();
   };
 
-  return (
+  return status === 'loading' ? (
+    <Preloader />
+  ) : status === 'error' ? (
+    <p>Error: {(error as Error).message}</p>
+  ) : (
     <UsersListStyled>
       <UsersListWrapper>
-        {allUsers.map((user) => (
-          <UserCard key={user.id} user={user} />
+        {data?.pages.map((group, i) => (
+          <Fragment key={i}>
+            {group.users.map((user) => (
+              <UserCard key={user.id} user={user} />
+            ))}
+          </Fragment>
         ))}
       </UsersListWrapper>
-      {isLoading && <Preloader />}
-      {total_pages && page < total_pages && (
-        <Button variant="primary" width="120px" onClick={handleShowMore}>
+      {hasNextPage && (
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        <Button variant="primary" width="120px" onClick={handleLoadMore}>
           Show more
         </Button>
       )}
